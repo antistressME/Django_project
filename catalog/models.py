@@ -26,7 +26,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to="images/", verbose_name="Изображение")
     category = models.ForeignKey(
         Category,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         related_name="product",
         verbose_name="Категория",
     )
