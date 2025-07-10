@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load my_tags %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+    <div class="row text-center">
+        <div class="col-10">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <img src="{{ product.image|media_filter }}" class="img-thumbnail" alt="изображение отстутсвует">
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <h4>{{ product.name }}</h4>
+                        <li>Цена: {{ product.price }}</li>
+                        <li>Категория: {{ product.category }}</li>
+                        <li>Описсание: {{ product.description }}</li>
+                        <li>Создано: {{ product.created_at }}</li>
+                        <li>Обновлено: {{ product.updated_at }}</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
+                </div>
+            </div>
+    </div>>
+{% endblock %}
