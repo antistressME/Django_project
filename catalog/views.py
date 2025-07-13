@@ -1,23 +1,22 @@
-from django.shortcuts import get_object_or_404, render
+from django.views.generic import DetailView, ListView, TemplateView
+
+from config.settings import BASE_DIR
 
 from .models import Product
 
 
-def home(request):
-    products = Product.objects.all()
-    context = {
-        "products": products,
-    }
-    return render(request, "home.html", context=context)
+class ProductListView(ListView):
+    model = Product
+    template_name = BASE_DIR / "catalog/templates/home.html"
+    context_object_name = "products"
 
 
-def contacts(request):
-    return render(request, "contacts.html")
+class ContactsTemplateView(TemplateView):
+    template_name = BASE_DIR / "catalog/templates/contacts.html"
+    context_object_name = "contacts"
 
 
-def product_page(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    context = {
-        "product": product,
-    }
-    return render(request, "product_page.html", context=context)
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = BASE_DIR / "catalog/templates/product_page.html"
+    context_object_name = "products"
