@@ -1,0 +1,28 @@
+{% extends 'blog_base.html' %}
+{% block title %}Новая запись{% endblock %}
+{% load my_tags %}
+{% block content %}
+<h4 class="text-center mt-5 mb-5">
+  {% if blog_note %}
+  Обновить данные записи:
+  {% else %}
+  Введите данные для создания новой записи
+  {% endif %}
+</h4>
+<div class="container">
+  <form method="post" enctype="multipart/form-data">
+    <div class="str text-center">
+      <div class="col-5">
+        <div class="card">
+        <div class="card-body">
+          {% csrf_token %}
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a class="btn btn-outline-secondary" href="{% url 'blog:blog' %}">Отмена</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
