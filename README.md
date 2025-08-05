@@ -7,7 +7,7 @@ Project description
 Проект включает в себя несколько приложений:
 
 - catalog
-- 
+- blog
 - 
 
 Приложение catalog отвечает за отображение страниц home и contacts.
